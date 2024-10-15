@@ -27,7 +27,7 @@ dataPlayer.addEventListener("submit", (e) => {
     xOrOValue.value = "";
 
     // Go To Home Page Game
-    document.location.href = "../Pages/game.html";
+    document.location.href = "Pages/game.html";
 })
 
 
