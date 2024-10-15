@@ -20,17 +20,21 @@ const colseMessage = document.getElementById("close");
 
 
 
+
 player_1.textContent = `${xOrO}:`;
 playerNameOne.textContent = PlayerOne;
+
+
+if (xOrO === "O") {
+    player_2.textContent = "X:"; 
+} else {
+    player_2.textContent = "O:"; 
+}
 playerNameTWo.textContent = PlayerTwo;
+
 
 startFrm.textContent = `${xOrO}`;
 
-if (xOrO === "O"){
-    player_2.textContent = "X:";
-} else if (xOrO === "X"){
-    player_2.textContent = "O:"
-}
 
 let currentValue = xOrO; // Current value (X or O)
 
@@ -88,15 +92,22 @@ function checkWin() {
         const [a, b, c] = combination;
         if (board[a] && board[a] === board[b] && board[a] === board[c]) {
             popupMessage.classList.add("show");
-            if (board[a] === "X"){
-                messagePlayer.textContent = `Player ${PlayerOne} is wins`;
-                // currentValue = (xOrO === "X") ? "O" : "X";
-                currentValue = "X"
-            } else if (board[a] === "O"){
-                messagePlayer.textContent = `Player ${PlayerTwo} is wins`;
-                // currentValue = (xOrO === "O") ? "X" : "O";
-                currentValue = "O"
+            if (board[a] === "O") {
+                if (xOrO === "O") {
+                    messagePlayer.textContent = `Player ${PlayerOne} wins`;
+                } else {
+                    messagePlayer.textContent = `Player ${PlayerTwo} wins`;
+                }
+                currentValue = "O";
+            } else if (board[a] === "X") {
+                if (xOrO === "X") {
+                    messagePlayer.textContent = `Player ${PlayerOne} wins`;
+                } else {
+                    messagePlayer.textContent = `Player ${PlayerTwo} wins`;
+                }
+                currentValue = "X";
             }
+            
         // Close message and reset game
         colseMessage.onclick = () => {
             popupMessage.classList.remove("show");
@@ -127,4 +138,7 @@ function resetGame() {
 boxes.forEach((box) => {
     box.addEventListener("click", addValue);
 });
+
+
+console.log(xOrO)
 
