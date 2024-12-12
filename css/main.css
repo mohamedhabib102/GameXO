@@ -59,7 +59,7 @@ header{
                 }
                 &:last-child{
                     display: inline-block;
-                    margin-left: 3px;
+                    margin-left: 5px;
                     font-size: 18px;
                 }
         }

@@ -4,6 +4,22 @@ const PlayerTwo = localStorage.getItem("player-two");
 const xOrO = localStorage.getItem("x-or-o");
 
 
+// Scoors Players 
+const scoorOne = document.getElementById("scoor1");
+const scoorTwo = document.getElementById("scoor2");
+
+
+
+
+
+const scoor1Storage = localStorage.getItem("scoorOne");
+const scoor2Storage = localStorage.getItem("scoorTwo");
+
+
+scoorOne.textContent = "0"; // Defualt Value
+scoorTwo.textContent = "0"; // Defualt Value
+
+
 // Globala
 const player_1 = document.getElementById("player1");
 const player_2 = document.getElementById("player2");
@@ -95,15 +111,19 @@ function checkWin() {
             if (board[a] === "O") {
                 if (xOrO === "O") {
                     messagePlayer.textContent = `Player ${PlayerOne} wins`;
+                    parseFloat(scoorOne.textContent++);
                 } else {
                     messagePlayer.textContent = `Player ${PlayerTwo} wins`;
+                    parseFloat(scoorTwo.textContent++); 
                 }
                 currentValue = "O";
             } else if (board[a] === "X") {
                 if (xOrO === "X") {
                     messagePlayer.textContent = `Player ${PlayerOne} wins`;
+                    parseFloat(scoorOne.textContent++);
                 } else {
                     messagePlayer.textContent = `Player ${PlayerTwo} wins`;
+                    parseFloat(scoorTwo.textContent++);
                 }
                 currentValue = "X";
             }
